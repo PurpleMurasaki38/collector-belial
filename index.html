@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seguidores De Chavajoth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=UnifrakturCook:wght@700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050000;
+  --bg2:#120000;
+  --panel:rgba(22,3,3,.84);
+  --panel-2:rgba(35,6,6,.92);
+  --blood:#8b0000;
+  --blood-2:#c61717;
+  --gold:#d7b06a;
+  --bone:#efe2cf;
+  --muted:#ccb7a0;
+  --line:rgba(255,120,120,.18);
+  --glow:0 0 28px rgba(255,80,80,.35);
+  --shadow:0 22px 80px rgba(0,0,0,.55);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--bone);
+  background:
+    radial-gradient(circle at top, rgba(180,20,20,.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255,90,0,.14), transparent 20%),
+    linear-gradient(180deg, #130000 0%, #050000 60%, #020000 100%);
+  font-family:"Cormorant Garamond", serif;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.02), rgba(255,255,255,0)),
+    radial-gradient(circle at center, transparent 0 55%, rgba(0,0,0,.28) 100%);
+  mix-blend-mode:screen;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+header.hero{
+  position:relative;
+  min-height:95vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:48px 18px 40px;
+  border-bottom:1px solid var(--line);
+}
+.hero-bg{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.78)),
+    url('capa belial.png') center/cover no-repeat;
+  filter:saturate(1.1) contrast(1.05);
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(circle at center, transparent 0 35%, rgba(0,0,0,.66) 100%);
+}
+.hero-content{position:relative; z-index:2; max-width:980px}
+.sigils{
+  font-size:clamp(20px, 2vw, 26px);
+  color:#ff9a9a;
+  letter-spacing:8px;
+  text-shadow:0 0 18px rgba(255,70,70,.6);
+}
+.hero h1{
+  margin:14px 0 10px;
+  font-family:"UnifrakturCook", cursive;
+  font-size:clamp(48px, 9vw, 112px);
+  line-height:.95;
+  color:#f7e7d1;
+  text-shadow:0 0 18px rgba(255,120,60,.32), 0 0 46px rgba(255,60,60,.3);
+}
+.subtitle{
+  font-family:"Cinzel", serif;
+  font-size:clamp(16px, 2vw, 24px);
+  letter-spacing:3px;
+  color:var(--gold);
+  margin-bottom:22px;
+}
+.hero p{
+  margin:0 auto;
+  max-width:760px;
+  font-size:clamp(20px,2.2vw,28px);
+  line-height:1.35;
+  color:#f2ddd0;
+}
+.topnav{
+  position:sticky;
+  top:0; z-index:30;
+  backdrop-filter: blur(14px);
+  background:rgba(8,0,0,.74);
+  border-bottom:1px solid var(--line);
+}
+.topnav .inner{
+  max-width:1240px; margin:0 auto; padding:14px 18px;
+  display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+}
+.topnav a{
+  text-decoration:none;
+  padding:10px 14px;
+  border:1px solid rgba(255,110,110,.18);
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+  font-family:"Cinzel", serif;
+  font-size:13px;
+  letter-spacing:1.6px;
+}
+.container{max-width:1240px; margin:0 auto; padding:34px 18px 70px}
+.section{margin:30px 0 54px}
+.section-title{
+  display:flex; align-items:center; gap:12px;
+  margin:0 0 20px;
+  font-family:"Cinzel", serif;
+  color:var(--gold);
+  font-size:clamp(24px, 3vw, 38px);
+  letter-spacing:2px;
+}
+.section-title::before,.section-title::after{
+  content:"✶";
+  color:#ff7c7c;
+  text-shadow:var(--glow);
+}
+.panel{
+  background:linear-gradient(180deg, rgba(30,5,5,.86), rgba(12,2,2,.9));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.grimoire{padding:26px}
+.grimoire p{
+  margin:0 0 16px;
+  font-size:24px;
+  line-height:1.55;
+}
+.grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:22px}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.card{padding:22px}
+.card h3{
+  margin:0 0 10px;
+  font-family:"Cinzel", serif;
+  color:#ffd6a4;
+  letter-spacing:1.2px;
+  font-size:22px;
+}
+.card p,.card li{font-size:22px; line-height:1.45; color:#ecd7c5}
+.card ul{margin:0; padding-left:22px}
+.quote{
+  font-size:30px; text-align:center; color:#fff1dc; padding:26px;
+  border:1px dashed rgba(255,155,90,.3);
+  border-radius:18px;
+  background:rgba(255,100,50,.06);
+}
+.bio-box{
+  position:relative;
+  overflow:hidden;
+}
+.bio-box::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(255,80,80,.08), transparent 45%, rgba(255,200,100,.06));
+  pointer-events:none;
+}
+.bio-text{white-space:pre-line; font-size:22px; line-height:1.55}
+.gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:24px}
+figure.art{
+  margin:0;
+  background:linear-gradient(180deg, rgba(35,8,8,.95), rgba(12,2,2,.96));
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+figure.art img{width:100%; height:auto; background:#130000}
+figcaption{
+  padding:16px 18px 20px;
+}
+.fig-title{
+  display:block;
+  font-family:"Cinzel", serif;
+  color:#ffd6a4;
+  font-size:18px;
+  letter-spacing:1px;
+  margin-bottom:6px;
+}
+.fig-desc{font-size:20px; color:#e4cdbc; line-height:1.35}
+.strip{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+.thumb{border-radius:18px; overflow:hidden; border:1px solid var(--line); background:#140202}
+.footer{
+  text-align:center;
+  padding:34px 18px 60px;
+  color:#caa;
+  border-top:1px solid var(--line);
+  font-size:20px;
+}
+.badge-row{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:22px}
+.badge{
+  border:1px solid rgba(255,190,120,.25);
+  background:rgba(255,255,255,.03);
+  padding:10px 16px;
+  border-radius:999px;
+  font-family:"Cinzel", serif;
+  color:#f4d7a6;
+  font-size:14px;
+  letter-spacing:1.3px;
+}
+.small-note{font-size:17px; color:var(--muted); margin-top:12px; text-align:center}
+@media (max-width: 980px){
+  .grid-2,.gallery,.grid-3,.strip{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+  <header class="hero" id="topo">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="sigils">𖤐 ⛧ ✟ 666 ✟ ⛧ 𖤐</div>
+      <h1>Seguidores De Chavajoth</h1>
+      <div class="subtitle">Grimoire Arcano • Bíblia Visual • Comic Gallery • Magia Vermelha</div>
+      <p>Uma edição completa reunindo o site original, as bios, a bíblia visual de Collector Belial e todas as comics criadas até agora em ordem de arquivo.</p>
+      <div class="badge-row">
+        <span class="badge">COLLECTOR BELIAL</span>
+        <span class="badge">CHAVAJOTH</span>
+        <span class="badge">BELIAL</span>
+        <span class="badge">RAZIEL</span>
+        <span class="badge">GRIMOIRE</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="topnav">
+    <div class="inner">
+      <a href="#grimorio">Grimório</a>
+      <a href="#bios">Bios</a>
+      <a href="#biblia">Bíblia Visual</a>
+      <a href="#retratos">Retratos</a>
+      <a href="#comics">Comics</a>
+      <a href="#arquivos">Ordem dos Arquivos</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="section" id="grimorio">
+      <h2 class="section-title">Grimoire Majestoso</h2>
+      <div class="panel grimoire">
+        <p>Eu, Collector Belial, o Apóstolo Queridíssimo do Altíssimo Gloriosíssimo, The Great Deus dos Deuses da Goetia, Asmodeus — o Criador da Magia Vermelha.</p>
+        <p>Eu, Collector Belial, eterno servo e escravo submisso de Chavajoth, escrevo com cuidado y carinho eterno este belíssimo Grimoire majestoso y ilustre.</p>
+        <p>Eu, Collector Belial, o Andarilho da Sujeira, amante dos Skinwalkers, declaro com devoção absoluta que aceito no centro do meu coração, deleitado em pecado e existência proibida, o caminho eterno da chama oculta.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="panel card">
+          <h3>Magias dos Grimórios Proibidos</h3>
+          <ul>
+            <li>🔥 Chama Carmesim de Asmodeus</li>
+            <li>🜏 Selo Negro de Chavajoth</li>
+            <li>🩸 Ritual de Sangue da Capa Preta</li>
+            <li>👁️ Olho de Luciferax</li>
+            <li>🌑 Invocação do Véu Sombrio</li>
+            <li>🕯️ Liturgia do Abismo Silencioso</li>
+          </ul>
+        </div>
+        <div class="panel card">
+          <h3>Conjuração</h3>
+          <p><strong>“Chavajoth! Chavajoth! Chavajoth!</strong><br>
+          Pelos quatro pilares da Terra,<br>
+          pelos três vértices do triângulo sagrado,<br>
+          eu vos invoco e vos conjuro!”</p>
+        </div>
+        <div class="panel card">
+          <h3>Frase Conceito</h3>
+          <div class="quote">“Ele não invade… ele atrai.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bios">
+      <h2 class="section-title">Bios de Discord & Instagram</h2>
+      <div class="grid-2">
+        <div class="panel card bio-box">
+          <h3>Versão Puro Luxo</h3>
+          <div class="bio-text">𓆩 🜏 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐎𝐑 𝐁𝐄𝐋𝐈𝐀𝐋 🜏 𓆪
+𓆩 𝑨𝒑ó𝒔𝒕𝒐𝒍𝒐 𝒅𝒆 𝑪𝒉𝒂𝒗𝒂𝒋𝒐𝒕𝒉 𓆪
+
+✦ 🕯️ 𝑮𝒓𝒊𝒎𝒐𝒊𝒓𝒆 𝑨𝒓𝒄𝒂𝒏𝒐 𝒆𝒔𝒄𝒓𝒊𝒕𝒐 𝒆𝒎 𝒔𝒂𝒏𝒈𝒖𝒆
+✦ 🩸 𝑴𝒂𝒈𝒊𝒂 𝑽𝒆𝒓𝒎𝒆𝒍𝒉𝒂 • 𝑪𝒉𝒂𝒎𝒂 𝑬𝒕𝒆𝒓𝒏𝒂
+✦ 🜏 𝑺𝒆𝒍𝒐 𝒅𝒆 𝑪𝒉𝒂𝒗𝒂𝒋𝒐𝒕𝒉 ∴ 𝑺𝒆𝒓𝒗𝒐 𝑬𝒕𝒆𝒓𝒏𝒐
+
+🖤 𝑹𝒂𝒛𝒊𝒆𝒍 — 𝒎𝒆𝒖 𝒑𝒂𝒄𝒕𝒐, 𝒎𝒆𝒖 𝒅𝒆𝒔𝒕𝒊𝒏𝒐
+🔥 𝑩𝒆𝒍𝒊𝒂𝒍 — 𝒎𝒆𝒖 𝒅𝒐𝒏𝒐, 𝒎𝒆𝒖 𝒅𝒆𝒔𝒆𝒋𝒐
+
+✦ “𝑪𝒉𝒂𝒗𝒂𝒋𝒐𝒕𝒉… 𝑪𝒉𝒂𝒗𝒂𝒋𝒐𝒕𝒉… 𝑪𝒉𝒂𝒗𝒂𝒋𝒐𝒕𝒉…” ✦
+
+666 🔥</div>
+        </div>
+        <div class="panel card bio-box">
+          <h3>Versão Curta</h3>
+          <div class="bio-text">⛧ Grimório ativo
+𖤐 Devoto de Chavajoth 🔥
+✟ Belial marcado em mim
+⛧ Raziel é meu ❤️
+✟ “Eu não invoco… eu me entrego.”
+
+✦ “Deleitado em pecado… eu aceitei o fogo… e o fogo me aceitou de volta.” ✦</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="biblia">
+      <h2 class="section-title">Bíblia Visual de Collector Belial</h2>
+      <div class="gallery">
+        <figure class="art">
+          <img src="a_character_reference_sheet_in_dark_and_gothic_ani.png" alt="Bíblia visual com poses, expressões e full body de Collector Belial">
+          <figcaption>
+            <span class="fig-title">Character Reference Completa</span>
+            <span class="fig-desc">Versão ampla com full body, expressões, poses e percepção visual do personagem.</span>
+          </figcaption>
+        </figure>
+        <figure class="art">
+          <img src="a_character_sheet_style_digital_illustration_in_a.png" alt="Character sheet de Collector Belial">
+          <figcaption>
+            <span class="fig-title">Character Sheet Luxuosa</span>
+            <span class="fig-desc">Página de artbook com informações de personalidade, traje, servidão e magia.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="retratos">
+      <h2 class="section-title">Retratos & Evoluções Visuais</h2>
+      <div class="gallery">
+        <figure class="art"><img src="chavajoth servant asmodeus wife.png" alt="Desenho original de Collector Belial"><figcaption><span class="fig-title">Arquivo Base</span><span class="fig-desc">Desenho original enviado como referência principal do personagem.</span></figcaption></figure>
+        <figure class="art"><img src="a_digital_anime_style_illustration_features_a_demo.png" alt="Versão HD com brilho do personagem"><figcaption><span class="fig-title">Primeira Evolução HD</span><span class="fig-desc">Versão com glow vermelho e tratamento mais cinematográfico.</span></figcaption></figure>
+        <figure class="art"><img src="a_digital_anime_style_illustration_features_a_clos.png" alt="Close do rosto de Collector Belial"><figcaption><span class="fig-title">Close Flertivo</span><span class="fig-desc">Peitoral preto com listras brancas de músculos femboy, sorriso suave e aura atraente.</span></figcaption></figure>
+        <figure class="art"><img src="a_digital_anime_style_illustration_of_a_demonic_ch.png" alt="Versão mais demoníaca do personagem"><figcaption><span class="fig-title">Versão Menos Humana</span><span class="fig-desc">Retrato mais entidade, mantendo a aparência não furry e o capuz com orelhas caídas.</span></figcaption></figure>
+        <figure class="art"><img src="capa belial.png" alt="Capa de Collector Belial"><figcaption><span class="fig-title">Capa Belial</span><span class="fig-desc">Imagem vertical usada como capa principal desta edição do site.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="comics">
+      <h2 class="section-title">Comic Gallery</h2>
+      <div class="gallery">
+        <figure class="art"><img src="a_ten_panel_dark_gothic_and_demonic_themed_comic.png" alt="Comic de 10 quadros da valsa eterna"><figcaption><span class="fig-title">A Valsa Eterna</span><span class="fig-desc">Primeira comic longa: Collector Belial dançando com o diabo num salão infernal.</span></figcaption></figure>
+        <figure class="art"><img src="a_two_panel_digital_comic_style_illustration_featu.png" alt="Comic de dois quadros da presença e da dança"><figcaption><span class="fig-title">Primeiro Encontro</span><span class="fig-desc">Duas cenas com o salão infernal e o início da valsa.</span></figcaption></figure>
+        <figure class="art"><img src="a_2_panel_comic_style_digital_illustration_feature.png" alt="Comic de dois quadros com diálogo romântico"><figcaption><span class="fig-title">Aceitação</span><span class="fig-desc">Variação de dois quadros focada no ritual, no olhar e na aproximação.</span></figcaption></figure>
+        <figure class="art"><img src="a_manga_style_digital_illustration_comic_page_depi.png" alt="Comic com invocação de Chavajoth"><figcaption><span class="fig-title">Encontro com Chavajoth</span><span class="fig-desc">Página com oração, fogo, 666 e o pacto sendo sussurrado em clima romântico.</span></figcaption></figure>
+        <figure class="art"><img src="a_four_panel_digital_illustration_comic_in_anime_m.png" alt="Comic de quatro quadros do jantar infernal"><figcaption><span class="fig-title">Jantar Infernal</span><span class="fig-desc">A conversa sobre paixão, poder e a invocação de Chavajoth sentados entre chamas.</span></figcaption></figure>
+        <figure class="art"><img src="a_four_panel_digital_comic_in_a_dark_hellish_sett.png" alt="Continuação do pacto com romance infernal"><figcaption><span class="fig-title">Selamos Nosso Pacto</span><span class="fig-desc">A continuação em quatro quadros, com toque íntimo, símbolos e atmosfera infernal.</span></figcaption></figure>
+        <figure class="art"><img src="a_four_panel_digital_comic_in_a_dark_demonic_sett.png" alt="Versão segura do pacto com fala final daddy"><figcaption><span class="fig-title">Pacto Selado</span><span class="fig-desc">Versão ajustada da comic com beijo, fogo ao redor e vínculo emocional.</span></figcaption></figure>
+        <figure class="art"><img src="oracaochavajoth1.png" alt="Comic oração Chavajoth 1"><figcaption><span class="fig-title">Oração Chavajoth I</span><span class="fig-desc">Arquivo vertical de oração e encontro com elementos de fogo e 666.</span></figcaption></figure>
+        <figure class="art"><img src="oracaochavajoth2.jpg" alt="Comic oração Chavajoth 2"><figcaption><span class="fig-title">Oração Chavajoth II</span><span class="fig-desc">Versão de quatro quadros com foco no ritual, na aproximação e na invocação.</span></figcaption></figure>
+        <figure class="art"><img src="oracaochavajoth3.png" alt="Comic oração Chavajoth 3"><figcaption><span class="fig-title">Oração Chavajoth III</span><span class="fig-desc">Versão final do conjunto de oração, pacto e romance infernal.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="arquivos">
+      <h2 class="section-title">Ordem dos Arquivos</h2>
+      <div class="panel card">
+        <p>Os principais arquivos usados nesta montagem foram organizados visualmente na página e mantidos na mesma pasta para abrir localmente sem quebrar os links. A sequência inclui a base original, as evoluções HD, as duas bíblias visuais, as páginas de oração e todas as comics criadas até agora.</p>
+        <div class="strip" style="margin-top:18px">
+          <div class="thumb"><img src="chavajoth servant asmodeus wife.png" alt="arquivo base"></div>
+          <div class="thumb"><img src="a_character_reference_sheet_in_dark_and_gothic_ani.png" alt="bible reference"></div>
+          <div class="thumb"><img src="a_ten_panel_dark_gothic_and_demonic_themed_comic.png" alt="comic valsa"></div>
+          <div class="thumb"><img src="oracaochavajoth3.png" alt="oração final"></div>
+        </div>
+        <div class="small-note">Abra este <strong>index.html</strong> na mesma pasta das imagens para ver tudo funcionando.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Seguidores De Chavajoth • edição completa com grimório, bios, bíblia visual e comics.
+  </footer>
+</body>
+</html>
